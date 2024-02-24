@@ -2,15 +2,15 @@ pipeline {
     agent any
 
     tools {
-        maven "maven3"
+        maven "maven"
     }
     environment {
-        SNAP_REPO = 'vprofile-snapshot'
-        RELEASE_REPO = 'vprofile-release'
-        CENTRAL_REPO = 'vpro-maven-central'
+        SNAP_REPO = 'Snapshot'
+        RELEASE_REPO = 'Release'
+        CENTRAL_REPO = 'Proxy'
         NEXUSIP = 'nexus'
         NEXUSPORT = '8081'
-        NEXUS_GRP_REPO = 'vpro-maven-group'
+        NEXUS_GRP_REPO = 'group'
         NEXUS_LOGIN = 'nexuslogin'
     }
 
@@ -51,7 +51,7 @@ pipeline {
         }
         stage('CODE ANALYSIS with SONARQUBE') {
             environment {
-                scannerHome = tool 'sonarscanner'
+                scannerHome = tool 'SonarScanner'
             }
             
             steps {
